@@ -52,13 +52,9 @@ keys = InputDevice('/dev/input/event0')
 
 threshold = 0.5                                        
 nms = 0.25 # 3
-max_face_num = 1                                        
-# print("-- load model:", model)
+max_face_num = 1                                       
 m = nn.load(model, opt=options)
-# print("-- load ok")
-# print("-- load model:", model_fe)
 m_fe = nn.load(model_fe, opt=options_fe)
-# print("-- load ok")
 face_recognizer = FaceRecognize(m, m_fe, feature_len, input_size, threshold, nms, max_face_num)
 
 def get_key():                                      
@@ -138,7 +134,7 @@ def run():
                     darw_info(img, box, landmarks, "{}:{:.2f}".format(names[maxIndex[0]], maxIndex[1]), font_color=(255, 255, 255, 255), bg_color=(255, 0, 0, 50))
                     print("May be {}".format(names[maxIndex[0]], maxIndex[1]))
             else:                                           
-                darw_info(img, box, landmarks, "Error no Rec", font_color=(255, 255, 255, 255), bg_color=(255, 0, 0, 50))
+                darw_info(img, box, landmarks, "Error No Rec!", font_color=(255, 255, 255, 255), bg_color=(255, 0, 0, 50))
     display.show(img)
 
 if __name__ == "__main__":
